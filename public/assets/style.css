@@ -1,0 +1,41 @@
+:root{
+    --bg-body: rgb(59, 63, 63);
+}
+
+body{
+    margin: auto!important;
+    width: 50%;
+}
+
+form{
+    border: 3px solid var(--bg-body);
+    border-radius: 10px;
+    padding: 15px 15px;
+    margin-top: 15%;
+}
+
+/* .form-control{
+    background-color: var(--bg-body) !important
+} */
+/* .form-control{
+    background-color: hsl(180, 3%, 80%) !important;
+} */
+
+input[placeholder]{
+    color: #919aa1;
+}
+
+textarea{
+    margin-bottom: 15px!important;
+}
+
+h1{
+    text-align: center;
+}
+
+button{
+    margin: 15px !important;
+    width: 200px;
+    display: block!important;
+    margin: auto!important;
+}
