@@ -1,12 +1,10 @@
 /*jshint esversion: 8 */
 
 module.exports = function (app) {
-    // app.get("/", (req, res) => {
-    //     res.render("form");
-    // });
     const axios = require('axios');
-    // API_URL = 'https://script.google.com/macros/s/AKfycby-TJmFFUFTfiNUbMoSIZx8LVtiskQ-bUt4xO6hmrU0XQpJS8IPUBow/exec';
-
+    const FormData = require('form-data');
+    const API_URL = 'https://script.google.com/macros/s/AKfycby-TJmFFUFTfiNUbMoSIZx8LVtiskQ-bUt4xO6hmrU0XQpJS8IPUBow/exec';
+    // const key = 'CLE-TEST-IOT';
     app.get('/index', (req, res) => {
         res.render('index');
     });
@@ -20,9 +18,11 @@ module.exports = function (app) {
     });
 
     app.post('/form', async (req, res, next) => {
+        const formData = new FormData(req.body);
+        // formData.append('cle', `${key}`);
         try {
-            const response = await axios.post('https://script.google.com/macros/s/AKfycby-TJmFFUFTfiNUbMoSIZx8LVtiskQ-bUt4xO6hmrU0XQpJS8IPUBow/exec', req.body);
-            console.log(response.data);
+            const response = await axios.post(`${API_URL}`, formData);
+            console.log(response);
             res.status(200).render('form_success');
             console.log(req.body);
         } catch (error) {
